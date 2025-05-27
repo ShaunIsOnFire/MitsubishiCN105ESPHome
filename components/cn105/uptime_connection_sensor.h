@@ -1,13 +1,15 @@
 #pragma once
-#include <esphome/components/uptime/sensor/uptime_seconds_sensor.h>
+#include "esphome/components/sensor/sensor.h"
+// Do not include polling_component.h
+
 namespace esphome {
     namespace uptime {
 
-        class HpUpTimeConnectionSensor : public UptimeSecondsSensor {
+        class HpUpTimeConnectionSensor : public sensor::Sensor {
         public:
-            void update() override;
-            std::string unique_id() override;
-            void dump_config() override;
+            void update();
+            std::string unique_id();
+            void dump_config();
 
             void start();           // connection established
             void stop();            // connection lost
